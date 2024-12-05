@@ -13,6 +13,8 @@ import "react-native-reanimated";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedBtn } from "@/components/ThemeBtn";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,7 +40,9 @@ export default function RootLayout() {
     <View style={styles.container}>
       <View style={styles.header}>
         <MaterialIcons name="menu" size={24} color="black" />
-        <Text style={styles.logo}>BYKEA</Text>
+        <ThemedText style={styles.logo} type="subtitle" darkColor="black">
+          Bykea
+        </ThemedText>
         <MaterialIcons name="local-phone" size={24} color="black" />
       </View>
       <View style={styles.banner}>
@@ -62,69 +66,48 @@ export default function RootLayout() {
       </View>
       <View style={styles.CardContainer}>
         <View style={styles.cardRow}>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/carpool.png")}
+          ></Image>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/Delivery.png")}
+          ></Image>
         </View>
 
         <View style={styles.cardRow}>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/Mobile.png")}
+          ></Image>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/Rantals.png")}
+          ></Image>
         </View>
-
 
         <View style={styles.cardRow}>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
-          <View style={styles.card}>
-            <Image
-              style={styles.card}
-              source={{
-                uri: "https://media.licdn.com/dms/image/v2/D5622AQFPpbMGHpTYIw/feedshare-shrink_800/feedshare-shrink_800/0/1700142768236?e=1735171200&v=beta&t=1Cnbhqon8fjHPzmoS2E_fmDIOjlVA5RUxMdIMDb0_ks",
-              }}
-            ></Image>
-          </View>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/Ride.png")}
+          ></Image>
+          <Image
+            style={styles.card}
+            source={require("../assets/images/Photos-001/Shop.png")}
+          ></Image>
         </View>
-
       </View>
+      <ThemedBtn text="this is Btn" mx={20} my={10} style={styles.btn} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  btn: {
+    backgroundColor:"pink",
+    color:"black"
+  },
   container: {
     flex: 1,
   },
@@ -196,8 +179,8 @@ const styles = StyleSheet.create({
   },
   CardContainer: {
     flex: 1,
-    padding: 20,
-    gap: 18,
+    padding: 25,
+    gap: 10,
   },
   cardRow: {
     flex: 1,
@@ -206,6 +189,10 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
+    // borderWidth: 1,
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
     borderRadius: 10,
   },
 });
